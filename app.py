@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return '<h1>Rab7a: Dockerize flask app</h2>'
+    return '<h1>push to docker by using CircleCI</h2>'
 
 
 if __name__ == "__main__":

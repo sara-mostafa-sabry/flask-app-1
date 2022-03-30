@@ -1,12 +1,17 @@
 version: 2.1
 jobs:
-  test_connection:
+  build_image:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/go:1.17
     steps:
-      - run: echo "connection estiblished"
+      - checkout
+      - setup_remote_docker
+      - run: 
+          name: build docker image
+          command: |
+            docker build --tag=rab7a:${CIRCLE_BUILD_NUM} .
 
 workflows:
   docker:
     jobs:
-      - test_connection
+      - build_image
